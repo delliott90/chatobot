@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link href="{% static 'chatwithapp/styles.css' %}" rel="stylesheet" type="text/css">
+        <title>My Chat Bot</title>
+    </head>
+    <body class="bg">
+        <div class="content-rows">
+            <!-- <div>
+                {% if bot_response %}
+                    <p>The Response from {{ bot_response.bot_q }} is: {{ bot_response.bot_r }}</p>
+                {% else %}
+                    <p>No response is available.</p>
+                {% endif %}
+            </div> -->
+            <div>
+                <a href="{% url 'chatwithapp:index' %}">Link to Index</a>
+            </div>
+
+            <form action="{% url 'chatwithapp:detail' %}" method="post">
+            {% csrf_token %}
+                <input type="text" name="traininput" id="traininput"/>
+                <input type="submit" value="Train."/>    
+            </form>
+        </div>
+</html>
+
+
+
+
